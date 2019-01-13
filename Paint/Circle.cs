@@ -10,17 +10,19 @@ namespace Shapes
 {
     [Serializable]
     class Circle : Shape
+
     {
         public int x { get; set; }
         public int y { get; set; }
         public int radius { get; set; }        
         public Color color { get; set; }
 
-
         /// <summary>
         /// to draw circle 
         /// </summary>
         /// <param name="g"></param>
+        
+        
         public void Draw(Graphics g)
         {
             
@@ -40,6 +42,7 @@ namespace Shapes
         /// <param name="color"></param>        
         
         public void SetParam(int x, int y, int width, int height, Color color)
+
         {
             this.x = x;
             this.y = y;

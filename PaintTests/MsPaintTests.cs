@@ -9,7 +9,9 @@ namespace Paint.Tests
     public class MsPaintTests
     {
         [TestMethod]
+
         //Checking if this function validates if endif case or not
+
         public void checkLoopAndIfValidation()
         {
             String input;
@@ -27,7 +29,9 @@ namespace Paint.Tests
             Assert.AreEqual(expectedOutcome, realOutcome);
 
         }
+
         //Testing if it validates a line of command
+
         [TestMethod()]
         public void checkLineValidationTest()
         {
@@ -45,8 +49,8 @@ namespace Paint.Tests
             realOutcome = validation.isValidCommand;
             Assert.AreEqual(expectedOutcome, realOutcome);
         }
-
         //Testing if it validates a variable
+
         [TestMethod()]
         public void checkIfVariableDefinedTest()
         {

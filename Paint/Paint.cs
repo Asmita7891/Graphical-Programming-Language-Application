@@ -879,7 +879,16 @@ namespace Paint
         {
             this.Close();
         }
-        
+
+        private void txtCommand_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
 
         private void DrawRectangle(int width, int height)
         {            

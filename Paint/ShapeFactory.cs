@@ -19,7 +19,7 @@ namespace Shapes
                     break;
                 case "RECTANGLE":
                     shape = new Rectangles();
-                    break;                
+                    break;
             }
             return shape;
         }

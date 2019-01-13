@@ -145,7 +145,8 @@
             // btnClearAll
             // 
             this.btnClearAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClearAll.Location = new System.Drawing.Point(463, 296);
+            this.btnClearAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClearAll.Location = new System.Drawing.Point(463, 104);
             this.btnClearAll.Name = "btnClearAll";
             this.btnClearAll.Size = new System.Drawing.Size(75, 24);
             this.btnClearAll.TabIndex = 4;
@@ -156,6 +157,7 @@
             // btnOpen
             // 
             this.btnOpen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOpen.Location = new System.Drawing.Point(463, 75);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(75, 23);
@@ -167,6 +169,7 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Location = new System.Drawing.Point(463, 46);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
@@ -178,6 +181,7 @@
             // btnRun
             // 
             this.btnRun.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRun.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRun.Location = new System.Drawing.Point(463, 17);
             this.btnRun.Name = "btnRun";
             this.btnRun.Size = new System.Drawing.Size(75, 23);
@@ -191,7 +195,7 @@
             this.txtCommand.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtCommand.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.txtCommand.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.txtCommand.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCommand.Location = new System.Drawing.Point(0, 0);
             this.txtCommand.Multiline = true;
@@ -236,9 +240,9 @@
             this.btnPolygon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnPolygon.FlatAppearance.BorderSize = 0;
             this.btnPolygon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPolygon.Location = new System.Drawing.Point(168, 3);
+            this.btnPolygon.Location = new System.Drawing.Point(228, 3);
             this.btnPolygon.Name = "btnPolygon";
-            this.btnPolygon.Size = new System.Drawing.Size(27, 23);
+            this.btnPolygon.Size = new System.Drawing.Size(69, 52);
             this.btnPolygon.TabIndex = 0;
             this.btnPolygon.UseVisualStyleBackColor = true;
             this.btnPolygon.Click += new System.EventHandler(this.btnPolygon_click);
@@ -249,9 +253,9 @@
             this.btnCircle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnCircle.FlatAppearance.BorderSize = 0;
             this.btnCircle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCircle.Location = new System.Drawing.Point(135, 3);
+            this.btnCircle.Location = new System.Drawing.Point(181, -4);
             this.btnCircle.Name = "btnCircle";
-            this.btnCircle.Size = new System.Drawing.Size(27, 23);
+            this.btnCircle.Size = new System.Drawing.Size(54, 64);
             this.btnCircle.TabIndex = 0;
             this.btnCircle.UseVisualStyleBackColor = true;
             this.btnCircle.Click += new System.EventHandler(this.btnCircle_Click);
@@ -259,17 +263,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 55);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(33, 66);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 13);
+            this.label1.Size = new System.Drawing.Size(31, 15);
             this.label1.TabIndex = 5;
             this.label1.Text = "Size";
             // 
             // btnClear
             // 
+            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClear.Location = new System.Drawing.Point(1177, 25);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.Size = new System.Drawing.Size(97, 35);
             this.btnClear.TabIndex = 4;
             this.btnClear.Text = "Clear All";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -279,7 +285,7 @@
             // 
             this.cboSize.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSize.FormattingEnabled = true;
-            this.cboSize.Location = new System.Drawing.Point(69, 52);
+            this.cboSize.Location = new System.Drawing.Point(99, 66);
             this.cboSize.Name = "cboSize";
             this.cboSize.Size = new System.Drawing.Size(121, 21);
             this.cboSize.TabIndex = 2;
@@ -291,7 +297,7 @@
             this.btnChooseColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnChooseColor.FlatAppearance.BorderColor = System.Drawing.Color.Gainsboro;
             this.btnChooseColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChooseColor.Location = new System.Drawing.Point(292, 3);
+            this.btnChooseColor.Location = new System.Drawing.Point(339, 17);
             this.btnChooseColor.Name = "btnChooseColor";
             this.btnChooseColor.Size = new System.Drawing.Size(67, 62);
             this.btnChooseColor.TabIndex = 1;
@@ -304,9 +310,9 @@
             this.btnTriangle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnTriangle.FlatAppearance.BorderSize = 0;
             this.btnTriangle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTriangle.Location = new System.Drawing.Point(102, 3);
+            this.btnTriangle.Location = new System.Drawing.Point(130, 3);
             this.btnTriangle.Name = "btnTriangle";
-            this.btnTriangle.Size = new System.Drawing.Size(27, 23);
+            this.btnTriangle.Size = new System.Drawing.Size(67, 49);
             this.btnTriangle.TabIndex = 0;
             this.btnTriangle.UseVisualStyleBackColor = true;
             this.btnTriangle.Click += new System.EventHandler(this.btnTriangle_Click);
@@ -317,9 +323,9 @@
             this.btnRectangle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnRectangle.FlatAppearance.BorderSize = 0;
             this.btnRectangle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRectangle.Location = new System.Drawing.Point(69, 3);
+            this.btnRectangle.Location = new System.Drawing.Point(91, 1);
             this.btnRectangle.Name = "btnRectangle";
-            this.btnRectangle.Size = new System.Drawing.Size(27, 23);
+            this.btnRectangle.Size = new System.Drawing.Size(47, 51);
             this.btnRectangle.TabIndex = 0;
             this.btnRectangle.UseVisualStyleBackColor = true;
             this.btnRectangle.Click += new System.EventHandler(this.btnRectangle_Click);
@@ -330,9 +336,9 @@
             this.btnEraser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnEraser.FlatAppearance.BorderSize = 0;
             this.btnEraser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEraser.Location = new System.Drawing.Point(36, 3);
+            this.btnEraser.Location = new System.Drawing.Point(49, 8);
             this.btnEraser.Name = "btnEraser";
-            this.btnEraser.Size = new System.Drawing.Size(27, 23);
+            this.btnEraser.Size = new System.Drawing.Size(36, 40);
             this.btnEraser.TabIndex = 0;
             this.btnEraser.UseVisualStyleBackColor = true;
             this.btnEraser.Click += new System.EventHandler(this.btnEraser_Click);
@@ -343,9 +349,9 @@
             this.btnPen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnPen.FlatAppearance.BorderSize = 0;
             this.btnPen.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPen.Location = new System.Drawing.Point(3, 3);
+            this.btnPen.Location = new System.Drawing.Point(10, 3);
             this.btnPen.Name = "btnPen";
-            this.btnPen.Size = new System.Drawing.Size(27, 23);
+            this.btnPen.Size = new System.Drawing.Size(33, 49);
             this.btnPen.TabIndex = 0;
             this.btnPen.UseVisualStyleBackColor = true;
             this.btnPen.Click += new System.EventHandler(this.btnPen_Click);

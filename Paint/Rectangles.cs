@@ -48,7 +48,6 @@ namespace Shapes
         /// <param name="height"></param>
         /// <param name="color"></param>
         
-        
         public void SetParam(int x, int y, int width, int height, Color color)
         {
             this.x = x;

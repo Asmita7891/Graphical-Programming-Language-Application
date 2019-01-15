@@ -14,15 +14,15 @@ namespace Shapes
     {
         public int x { get; set; }
         public int y { get; set; }
-        public int radius { get; set; }        
+        public int radius { get; set; }
         public Color color { get; set; }
 
         /// <summary>
         /// to draw circle 
         /// </summary>
         /// <param name="g"></param>
-        
-        
+
+
         public void Draw(Graphics g)
         {
             

@@ -19,7 +19,7 @@ namespace Paint
         Color mainColor = Color.Black;
         int size = 2;
         Graphics g;
-        int x,y = -1;
+        int x, y = -1;
         int mouseX, mouseY = 0;
         Boolean moving = false;
         Pen pen;
@@ -81,7 +81,8 @@ namespace Paint
 
         private void btnChooseColor_Click(object sender, EventArgs e)
         {
-            if (colorDialog1.ShowDialog() != DialogResult.Cancel) {
+            if (colorDialog1.ShowDialog() != DialogResult.Cancel)
+            {
                 btnChooseColor.BackColor = colorDialog1.Color;
                 mainColor = colorDialog1.Color;
             }
@@ -101,9 +102,9 @@ namespace Paint
 
         private void btnEraser_Click(object sender, EventArgs e)
         {
-            active = "eraser";            
+            active = "eraser";
             removeAllBorderFromButtons();
-            btnEraser.FlatAppearance.BorderSize = 1;            
+            btnEraser.FlatAppearance.BorderSize = 1;
             panelPaint.Cursor = new Cursor(Properties.Resources.eraser.GetHicon());
             cboSize.Enabled = false;
 
@@ -178,12 +179,12 @@ namespace Paint
         {
             moving = false;
             x = -1;
-            y = -1;            
+            y = -1;
         }
 
         private void cboSize_SelectedIndexChanged(object sender, EventArgs e)
         {
-            size = Convert.ToInt32(cboSize.SelectedItem.ToString());            
+            size = Convert.ToInt32(cboSize.SelectedItem.ToString());
             pen = new Pen(mainColor, size);
         }
 
@@ -204,13 +205,14 @@ namespace Paint
             {
                 System.Drawing.SolidBrush myBrush = new System.Drawing.SolidBrush(System.Drawing.Color.White);
                 g.FillRectangle(myBrush, e.X, e.Y, 24, 24);
-            }else if (active.Equals("rectangle"))
+            }
+            else if (active.Equals("rectangle"))
             {
                 shapes = shapeFactory.getShape("RECTANGLE");
                 shapes.SetParam(e.X - size / 2, e.Y - size / 2, size, size, mainColor);
 
                 SolidBrush myBrush = new SolidBrush(mainColor);
-                g.FillRectangle(myBrush, e.X - size/2, e.Y - size / 2, size, size);
+                g.FillRectangle(myBrush, e.X - size / 2, e.Y - size / 2, size, size);
             }
             else if (active.Equals("triangle"))
             {
@@ -231,7 +233,7 @@ namespace Paint
             {
                 System.Drawing.SolidBrush myBrush = new System.Drawing.SolidBrush(mainColor);
                 g.FillEllipse(myBrush, e.X - size / 2, e.Y - size / 2, size, size);
-                
+
             }
             else if (active.Equals("polygon"))
             {
@@ -247,8 +249,8 @@ namespace Paint
                 pnt[2].X = mouseX + size + (size / 2);
                 pnt[2].Y = mouseY + size;
 
-                pnt[3].X = mouseX - (size/2);
-                pnt[3].Y = mouseY + size;                
+                pnt[3].X = mouseX - (size / 2);
+                pnt[3].Y = mouseY + size;
 
                 pnt[4].X = mouseX;
                 pnt[4].Y = mouseY;
@@ -259,13 +261,16 @@ namespace Paint
 
         private void btnOpen_Click(object sender, EventArgs e)
         {
-            if (openFile.ShowDialog() == DialogResult.OK) {
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
                 txtCommand.Clear();
                 line = "";
                 StreamReader sr = new StreamReader(openFile.FileName);
-                while (line != null) {
+                while (line != null)
+                {
                     line = sr.ReadLine();
-                    if (line != null) {                        
+                    if (line != null)
+                    {
                         txtCommand.Text += line;
                         txtCommand.Text += "\r\n";
                     }
@@ -282,20 +287,23 @@ namespace Paint
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = "Text File | *.txt";
-            if (saveFileDialog.ShowDialog() == DialogResult.OK) {
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
                 using (Stream s = File.Open(saveFileDialog.FileName, FileMode.CreateNew))
-                using (StreamWriter sw = new StreamWriter(s)) {
+                using (StreamWriter sw = new StreamWriter(s))
+                {
                     sw.Write(txtCommand.Text);
                 }
                 MessageBox.Show("Your File has been saved Sucessfully");
             }
-            
+
         }
 
         private void btnRun_Click(object sender, EventArgs e)
         {
             hasDrawOrMoveValue = false;
-            if (txtCommand.Text != null && txtCommand.Text != "") {
+            if (txtCommand.Text != null && txtCommand.Text != "")
+            {
                 validate = new Validation(txtCommand);
                 if (!validate.isSomethingInvalid)
                 {
@@ -308,21 +316,26 @@ namespace Paint
 
         private void panelPaint_MouseMove(object sender, MouseEventArgs e)
         {
-            if (!hasDrawOrMoveValue) {
+            if (!hasDrawOrMoveValue)
+            {
                 mouseX = e.X;
                 mouseY = e.Y;
             }
-            if (moving && x != -1 && y != -1) {
+            if (moving && x != -1 && y != -1)
+            {
                 if (active.Equals("pen"))
                 {
                     g.DrawLine(pen, new Point(x, y), e.Location);
                     x = e.X;
                     y = e.Y;
-                } else if (active.Equals("eraser")) {
+                }
+                else if (active.Equals("eraser"))
+                {
                     //g.DrawRectangle(pen, e.X, e.Y, 24, 24);
+
                     System.Drawing.SolidBrush myBrush = new System.Drawing.SolidBrush(System.Drawing.Color.White);
                     g.FillRectangle(myBrush, e.X, e.Y, 24, 24);
-                }                
+                }
             }
 
 
@@ -331,7 +344,8 @@ namespace Paint
         {
             int numberOfLines = txtCommand.Lines.Length;
 
-            for (int i = 0; i < numberOfLines; i++) {
+            for (int i = 0; i < numberOfLines; i++)
+            {
                 String oneLineCommand = txtCommand.Lines[i];
                 oneLineCommand = oneLineCommand.Trim();
                 if (!oneLineCommand.Equals(""))
@@ -350,10 +364,12 @@ namespace Paint
                         mouseY = int.Parse(parms[1]);
                         hasDrawOrMoveValue = true;
                     }
-                    else {
+                    else
+                    {
                         hasDrawOrMoveValue = false;
                     }
-                    if (hasMoveto) {
+                    if (hasMoveto)
+                    {
                         panelPaint.Refresh();
                     }
                 }
@@ -367,14 +383,16 @@ namespace Paint
                 {
                     RunCommand(oneLineCommand);
                 }
-                    
+
             }
         }
-        private void RunCommand(String oneLineCommand) {
-            
+        private void RunCommand(String oneLineCommand)
+        {
+
             Boolean hasPlus = oneLineCommand.Contains('+');
             Boolean hasEquals = oneLineCommand.Contains("=");
-            if (hasEquals) {
+            if (hasEquals)
+            {
                 oneLineCommand = Regex.Replace(oneLineCommand, @"\s+", " ");
                 string[] words = oneLineCommand.Split(' ');
                 //removing white spaces in between words
@@ -430,7 +448,8 @@ namespace Paint
                             }
                         }
                     }
-                    else {
+                    else
+                    {
                         MessageBox.Show("If Statement is false");
                     }
                 }
@@ -458,22 +477,26 @@ namespace Paint
                         counter = int.Parse(words2[1]);
                     }
                 }
-            } else if (hasPlus) {
+            }
+            else if (hasPlus)
+            {
                 oneLineCommand = System.Text.RegularExpressions.Regex.Replace(oneLineCommand, @"\s+", " ");
                 string[] words = oneLineCommand.Split(' ');
                 if (words[0].ToLower().Equals("repeat"))
                 {
                     counter = int.Parse(words[1]);
                     if (words[2].ToLower().Equals("circle"))
-                    {                                
+                    {
                         int increaseValue = GetSize(oneLineCommand);
                         radius = increaseValue;
-                        for (int j = 0; j < counter; j++) {
+                        for (int j = 0; j < counter; j++)
+                        {
                             DrawCircle(radius);
                             radius += increaseValue;
                         }
                     }
-                    else if (words[2].ToLower().Equals("rectangle")) {
+                    else if (words[2].ToLower().Equals("rectangle"))
+                    {
                         int increaseValue = GetSize(oneLineCommand);
                         dSize = increaseValue;
                         for (int j = 0; j < counter; j++)
@@ -492,8 +515,10 @@ namespace Paint
                             dSize += increaseValue;
                         }
                     }
+
                 }
-                else {
+                else
+                {
                     string[] words2 = oneLineCommand.Split('+');
                     for (int j = 0; j < words2.Length; j++)
                     {
@@ -511,28 +536,31 @@ namespace Paint
                     {
                         height += int.Parse(words2[1]);
                     }
-                }                        
+                }
             }
-            else {
+            else
+            {
                 sendDrawCommand(oneLineCommand);
             }
-                    
-                
+
+
         }
 
         private int GetSize(string lineCommand)
         {
             int value = 0;
-            if (lineCommand.ToLower().Contains("radius")) {
+            if (lineCommand.ToLower().Contains("radius"))
+            {
                 int pos = (lineCommand.IndexOf("radius") + 6);
                 int size = lineCommand.Length;
-                String tempLine = lineCommand.Substring(pos, (size-pos));
+                String tempLine = lineCommand.Substring(pos, (size - pos));
                 tempLine = tempLine.Trim();
                 String newTempLine = tempLine.Substring(1, (tempLine.Length - 1));
                 newTempLine = newTempLine.Trim();
                 value = int.Parse(newTempLine);
-                
-            }else if(lineCommand.ToLower().Contains("size"))
+
+            }
+            else if (lineCommand.ToLower().Contains("size"))
             {
                 int pos = (lineCommand.IndexOf("size") + 4);
                 int size = lineCommand.Length;
@@ -552,7 +580,9 @@ namespace Paint
 
             lineOfCommand = System.Text.RegularExpressions.Regex.Replace(lineOfCommand, @"\s+", " ");
             string[] words = lineOfCommand.Split(' ');
+
             //removing white spaces in between words
+
             for (int i = 0; i < words.Length; i++)
             {
                 words[i] = words[i].Trim();
@@ -606,7 +636,8 @@ namespace Paint
                         {
                             DrawRectangle(Int32.Parse(parms[0]), height);
                         }
-                        else {
+                        else
+                        {
                             DrawRectangle(Int32.Parse(parms[0]), Int32.Parse(parms[1]));
                         }
                     }
@@ -642,7 +673,7 @@ namespace Paint
                     }
 
                 }
-                
+
             }
             else
             {
@@ -664,7 +695,9 @@ namespace Paint
                             }
                         }
                     }
-                } else if (firstWord.Equals("if")) {
+                }
+                else if (firstWord.Equals("if"))
+                {
                     Boolean loop = false;
                     if (words[1].ToLower().Equals("radius"))
                     {
@@ -672,7 +705,8 @@ namespace Paint
                         {
                             loop = true;
                         }
-                    }else if (words[1].ToLower().Equals("width"))
+                    }
+                    else if (words[1].ToLower().Equals("width"))
                     {
                         if (width == int.Parse(words[1]))
                         {
@@ -698,7 +732,7 @@ namespace Paint
                     int ifEndLine = (GetEndifEndLineNumber() - 1);
                     loopCounter = ifEndLine;
                     if (loop)
-                    {                       
+                    {
                         for (int j = ifStartLine; j <= ifEndLine; j++)
                         {
                             String oneLineCommand = txtCommand.Lines[j];
@@ -710,7 +744,7 @@ namespace Paint
                         }
                     }
                 }
-            }             
+            }
         }
 
         private int GetEndifEndLineNumber()
@@ -741,7 +775,9 @@ namespace Paint
                 String oneLineCommand = txtCommand.Lines[i];
                 oneLineCommand = Regex.Replace(oneLineCommand, @"\s+", " ");
                 string[] words = oneLineCommand.Split(' ');
+
                 //removing white spaces in between words
+
                 for (int j = 0; j < words.Length; j++)
                 {
                     words[j] = words[j].Trim();
@@ -785,7 +821,9 @@ namespace Paint
                 String oneLineCommand = txtCommand.Lines[i];
                 oneLineCommand = Regex.Replace(oneLineCommand, @"\s+", " ");
                 string[] words = oneLineCommand.Split(' ');
+
                 //removing white spaces in between words
+
                 for (int j = 0; j < words.Length; j++)
                 {
                     words[j] = words[j].Trim();
@@ -795,7 +833,7 @@ namespace Paint
                 if (firstWord.Equals("loop"))
                 {
                     lineNum = i + 1;
-                    
+
                 }
             }
             return lineNum;
@@ -824,7 +862,7 @@ namespace Paint
 
             g.DrawPolygon(myPen, pnt);
         }
-        private void DrawPolygon(int v1, int v2, int v3, int v4, int v5,int v6, int v7, int v8, int v9, int v10)
+        private void DrawPolygon(int v1, int v2, int v3, int v4, int v5, int v6, int v7, int v8, int v9, int v10)
         {
             Pen myPen = new Pen(mainColor);
             Point[] pnt = new Point[6];
@@ -846,7 +884,7 @@ namespace Paint
 
             pnt[5].X = mouseX - v9;
             pnt[5].Y = mouseY - v10;
-            g.DrawPolygon(myPen, pnt);            
+            g.DrawPolygon(myPen, pnt);
         }
 
         private void DrawTriangle(int rBase, int adj, int hyp)
@@ -858,7 +896,7 @@ namespace Paint
             pnt[0].Y = mouseY;
 
             pnt[1].X = mouseX - rBase;
-            pnt[1].Y = mouseY ;
+            pnt[1].Y = mouseY;
 
             pnt[2].X = mouseX;
             pnt[2].Y = mouseY - adj;
@@ -891,7 +929,7 @@ namespace Paint
         }
 
         private void DrawRectangle(int width, int height)
-        {            
+        {
             Pen myPen = new Pen(mainColor);
             g.DrawRectangle(myPen, mouseX - width / 2, mouseY - height / 2, width, height);
         }
@@ -899,7 +937,7 @@ namespace Paint
         private void DrawCircle(int radius)
         {
             Pen myPen = new Pen(mainColor);
-            g.DrawEllipse(myPen, mouseX - radius , mouseY - radius , radius*2, radius*2);
+            g.DrawEllipse(myPen, mouseX - radius, mouseY - radius, radius * 2, radius * 2);
         }
     }
 }
